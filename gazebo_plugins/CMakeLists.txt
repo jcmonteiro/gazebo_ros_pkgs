@@ -64,7 +64,19 @@ ament_target_dependencies(gazebo_ros_joint_effort
   "rclcpp"
   "sensor_msgs"
 )
+# gazebo_ros_simple_blade
+add_library(gazebo_ros_simple_blade SHARED
+  src/gazebo_ros_simple_blade.cpp
+)
+ament_target_dependencies(gazebo_ros_simple_blade
+  "gazebo_dev"
+  "gazebo_ros"
+  "rclcpp"
+  "sensor_msgs"
+  "geometry_msgs"
+)
 ament_export_libraries(gazebo_ros_joint_effort)
+ament_export_libraries(gazebo_ros_simple_blade)
 
 # gazebo_ros_diff_drive
 add_library(gazebo_ros_diff_drive SHARED
@@ -427,6 +439,7 @@ install(TARGETS
     gazebo_ros_planar_move
     gazebo_ros_projector
     gazebo_ros_ray_sensor
+    gazebo_ros_simple_blade
     gazebo_ros_p3d
     gazebo_ros_template
     gazebo_ros_tricycle_drive
